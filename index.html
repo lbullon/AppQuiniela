@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function definePronostico(pronostico) {
+            if (pronostico > 0 && pronostico < 5) {
+                pronostico = "1"
+            }
+            else if (pronostico > 5 && pronostico < 8) {
+                pronostico = "X"
+            }
+            else (
+                pronostico = "2"
+            )
+            return pronostico
+        }
+
+        var columnas = prompt("Cuantas columnas quieres");
+        var quiniela = [];
+
+        n = 0;
+        while (n < parseInt(columnas)) {
+            t = 0;
+            var columna = [];
+            while (t < 14) {
+                columna[t] = definePronostico(Math.random() * 10);
+                t++
+            }
+            quiniela[n] = columna;
+            n++
+
+        }
+        n = 0;
+        document.write("<table>");
+        while (n < quiniela.length) {
+
+            document.write("<tr>");
+            document.write("<td>Columna" + (n + 1) + "</td>");
+            t = 0;
+
+            while (t < quiniela[n].length) {
+                document.write("<td>" + quiniela[n][t] + "</td>");
+
+                t++
+            }
+            document.write("</tr>")
+            n++
+
+        };
+        document.write("<tr><td rowspan ='" + columnas + "'> Plenos al 15 =>" + definePronostico(Math.random() * 10) + "</td></tr>")
+        document.write("</table>")
+
+
+
+    </script>
+</body>
+
+</html>
